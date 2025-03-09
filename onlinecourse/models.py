@@ -54,6 +54,7 @@ class Learner(models.Model):
 
 # Course model
 class Course(models.Model):
+
     name = models.CharField(null=False, max_length=30, default='online course')
     image = models.ImageField(upload_to='course_images/')
     description = models.CharField(max_length=1000)
@@ -61,7 +62,7 @@ class Course(models.Model):
     instructors = models.ManyToManyField(Instructor)
     users = models.ManyToManyField(settings.AUTH_USER_MODEL, through='Enrollment')
     total_enrollment = models.IntegerField(default=0)
-    is_enrolled = False
+    is_enrolled = models.BooleanField(default=False)
 
     def __str__(self):
         return "Name: " + self.name + "," + \
@@ -77,8 +78,6 @@ class Lesson(models.Model):
 
 
 # Enrollment model
-# <HINT> Once a user enrolled a class, an enrollment entry should be created between the user and course
-# And we could use the enrollment to track information such as exam submissions
 class Enrollment(models.Model):
     AUDIT = 'audit'
     HONOR = 'honor'
@@ -95,9 +94,33 @@ class Enrollment(models.Model):
     rating = models.FloatField(default=5.0)
 
 
-# One enrollment could have multiple submission
-# One submission could have multiple choices
-# One choice could belong to multiple submissions
-#class Submission(models.Model):
-#    enrollment = models.ForeignKey(Enrollment, on_delete=models.CASCADE)
-#    choices = models.ManyToManyField(Choice)
+class Question(models.Model):
+    
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    # Establishing a many-to-many relationship as a question can belong to one or more lessons and a lesson can have many questions
+    lessons =  models.ManyToManyField(Lesson)
+    question_text = models.CharField(max_length=500)
+    question_point = models.IntegerField(default=1)
+
+    def is_get_grade(self, selected_ids):
+        """ this function checks if the student successfully chose all the right answers """
+        all_answers = self.choice_set.filter(is_correct=True).count()
+        selected_correct = self.choice_set.filter(is_correct=True, id__in=selected_ids).count()
+        if all_answers == selected_correct:
+            return True
+        else:
+            return False
+
+
+class Choice(models.Model):
+    # Has a one-to-many relationship with Question model
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    choice_text = models.CharField(max_length=200)
+    is_correct = models.BooleanField(default=False)
+
+
+class Submission(models.Model):
+   # One enrollment can have multiple submissions
+   enrollment = models.ForeignKey(Enrollment, on_delete=models.CASCADE)
+   # A submission can have multiple choices and a choice can belong to multiple submissions
+   choices = models.ManyToManyField(Choice)
