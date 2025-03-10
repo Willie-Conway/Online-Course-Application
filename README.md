@@ -133,10 +133,8 @@ This was all styled using **Bootstrap** to create a responsive, user-friendly in
 This project is part of the **IBM Developer Skills Network**. All rights reserved by **IBM Corporation**.
 
 ---
-
+```
 Feel free to contribute or ask any questions regarding the project! 😊
 ```
-
 **ER Diagram**
-
 ![Onlinecourse ER Diagram](https://github.com/ibm-developer-skills-network/final-cloud-app-with-database/blob/master/static/media/course_images/onlinecourse_app_er.png)
