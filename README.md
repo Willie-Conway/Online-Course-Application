@@ -115,16 +115,16 @@ This was all styled using **Bootstrap** to create a responsive, user-friendly in
 ## Screenshot Examples 📸
 
 ### 1. **Course Details Page**
-![Course Details](screenshots/course_details.png)
+![Course Details](https://github.com/Willie-Conway/my-course-repo/blob/dae527f430247697b2b6137fa198c5c1c79d8a96/Screenshots/Lesson%20Page.png)
 
 ### 2. **Exam Results - Pass** 🎉
-![Exam Results - Pass](screenshots/exam_results_pass.png)
+![Exam Results - Pass](https://github.com/Willie-Conway/my-course-repo/blob/dae527f430247697b2b6137fa198c5c1c79d8a96/Screenshots/Answers.png)
 
 ### 3. **Exam Results - Fail** 😞
-![Exam Results - Fail](screenshots/exam_results_fail.png)
+![Exam Results - Fail](https://github.com/Willie-Conway/my-course-repo/blob/dae527f430247697b2b6137fa198c5c1c79d8a96/Screenshots/Incorrect%20Answers.png)
 
 ## Authors ✍️
-
+- **Willie Conway**
 - **Yan Luo**
 - **Muhammad Yahya**
 
