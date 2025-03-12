@@ -1,5 +1,5 @@
 
-# Final Project: Add a New Assessment Feature to an Online Course Application 🎓
+# Add a New Assessment Feature to an Online Course Application 🎓
 
 ## Overview 🌟
 
