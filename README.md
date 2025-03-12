@@ -1,6 +1,8 @@
 
 # Add a New Assessment Feature to an Online Course Application 🎓
 
+![Online Course Application](https://github.com/Willie-Conway/Online-Course-Application/blob/8ce1a99e2e35bbd0142377b30788b9dfccbaf5be/Screenshots/Online%20Courses%20App.gif)
+
 ## Overview 🌟
 
 In this project, we implement an assessment feature to an **Online Course Application**. The feature allows learners to take an exam, submit their answers, and get results based on their performance. This process includes creating models, handling form submissions, displaying dynamic content in templates, and providing feedback to the learner.
